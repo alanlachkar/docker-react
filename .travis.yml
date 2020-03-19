@@ -1,3 +1,4 @@
+language: generic
 # Use sudo
 sudo: required
 # Tell Travis we need a copy of docker running

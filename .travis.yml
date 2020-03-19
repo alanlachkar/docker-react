@@ -1,0 +1,13 @@
+# Use sudo
+sudo: required
+# Tell Travis we need a copy of docker running
+services:
+  - docker
+
+# Build our image using Dockerfile.dev
+before_install:
+  - docker build -t alanlachkar/docker-react -f Dockerfile.dev .
+
+# Tell Travis how to run our test suite
+script:
+  - docker run -e CI=true alanlachkar/docker-react npm run test

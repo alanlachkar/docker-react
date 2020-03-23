@@ -8,6 +8,8 @@ RUN npm run build
 
 # Run phase
 FROM nginx
+# Open the port 80 for ElasticBeanstalk (useless for us)
+EXPOSE 80
 # Specify the container then the source path then the destination path (here according to nginx)
 COPY --from=builder /app/build /usr/share/nginx/html
 # The default command for nginx image is to start up nginx (so no need to write here)
